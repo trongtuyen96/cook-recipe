@@ -4,12 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Sample</title>
+    <title>Cook Recipe</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
+    <div class="mobile-container">
+        <header>
+            <input type="text">
+            <button id="search"><i class="fas fa-search"></i></button>
+        </header>
+        <div class="fav-container">
+            <h3>Favorite Meals</h3>
+            <ul class="fav-meals">
+                <li>
+                    <img src="https://www.themealdb.com/images/ingredients/Lime.png" alt="">
+                    <span>Lime</span>
+                </li>
+                <li>
+                    <img src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview" alt="">
+                    <span>Carbonara</span>
+                </li>
+                <li>
+                    <img src="https://www.themealdb.com/images/media/meals/1525873040.jpg" alt="">
+                    <span>Kung Pao</span>
+                </li>
+                <li>
+                    <img src="https://www.themealdb.com/images/ingredients/Lime.png" alt="">
+                    <span>Lime</span>
+                </li>
+            </ul>
+        </div>
+        <div class="meals">
+            <div class="meal">
+                <div class="meal-header">
+                    <span class="random">
+                        Random Recipe
+                    </span>
+                    <img src="https://www.themealdb.com/images/media/meals/sxwquu1511793428.jpg" alt="">
+                </div>
+                <div class="meal-body">
+                    <h4>Veggie Veggies</h4>
+                    <button class="fav-btn">
+                        <i class="fas fa-heart">
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
