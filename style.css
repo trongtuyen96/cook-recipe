@@ -58,7 +58,8 @@ header button {
 }
 
 .fav-container {
-    background-color: rgb(250, 187, 234);
+    background-color: #ffcfdf;
+    background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
     padding: 0.25rem 1rem;
     text-align: center;
 }
@@ -72,7 +73,25 @@ header button {
 }
 
 .fav-meals li {
-    width: 85px;
+    cursor: pointer;
+    position: relative;
+    margin: 5px;
+    width: 75px;
+}
+
+.fav-meals li .clear {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    font-size: 1.2rem;
+}
+
+.fav-meals li:hover .clear {
+    opacity: 1;
 }
 
 .fav-meals li img {
@@ -86,13 +105,19 @@ header button {
 
 .fav-meals li span {
     font-size: 0.9rem;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 75px;
 }
 
 .meal {
     border-radius: 3px;
-    box-shadow: 0 0 10px #3333331A;
+    box-shadow: 0 0 10px #0c0c0c4a;
     margin: 1.5rem;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .meal-header {
@@ -121,7 +146,7 @@ header button {
     padding: 1rem;
 }
 
-.meal-body h4{
+.meal-body h4 {
     margin: 0;
 }
 
@@ -133,6 +158,70 @@ header button {
     cursor: pointer;
 }
 
-.meal-body .fav-btn:active {
-  color: rebeccapurple;
+.meal-body .fav-btn.active {
+    color: rebeccapurple;
+}
+
+.control-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+.btn-refresh {
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.popup-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.popup-container.hidden {
+    opacity: 0;
+    /* Set up to no click zone for event */
+    pointer-events: none;
+}
+
+.popup {
+    background-color: #FFFFFF;
+    padding: 0 2rem;
+    border-radius: 5px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    overflow: auto;
+    max-height: 100vh;
+    max-width: 600px;
+    width: 100%;
+}
+
+.popup .close-popup {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.meal-info h1 {
+    text-align: center;
+}
+
+.meal-info img {
+    max-width: 100%;
 }
