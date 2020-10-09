@@ -136,7 +136,8 @@ function addMealFav(mealData) {
         fetchFavMeals();
     })
 
-    favMeal.addEventListener('click', () => {
+    const mealThumb = favMeal.querySelector('img');
+    mealThumb.addEventListener('click', () => {
         showMealInfo(mealData);
     })
 
@@ -160,8 +161,6 @@ function showMealInfo(mealData) {
             break;
         }
     }
-
-    console.log(mealData)
 
     mealEl.innerHTML = `<h1>${mealData.strMeal}</h1>
     <img src="${mealData.strMealThumb}" alt="${mealData.strMealThumb}">
