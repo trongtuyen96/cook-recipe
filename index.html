@@ -17,8 +17,23 @@
             <button id="search"><i class="fas fa-search"></i></button>
         </header>
         <div class="fav-container">
-            <h3>𝙵𝚊𝚟𝚘𝚛𝚒𝚝𝚎 𝙼𝚎𝚊𝚕𝚜</h3>
+            <h3>Favorite Meals</h3>
             <ul class="fav-meals" id="fav-meals">
+            </ul>
+        </div>
+        <div class="filter-container">
+            <h3>Filter Meals</h3>
+            <ul class="filter-controls" id="filter-controls">
+                <li id="li-area">
+                    <img src="https://www.countryflags.io/EU/flat/64.png" alt="Area">
+                    <span>Area</span>
+                </li>
+                <!-- <li><img src="https://www.iconninja.com/ico/64/breakfast-603396.ico" alt="Category">
+                    <span>Category</span>
+                </li>
+                <li><img src="https://www.iconninja.com/ico/64/banana-fruit-10534.ico" alt="Ingredient">
+                    <span>Ingredient</span>
+                </li> -->
             </ul>
         </div>
         <div class="meals" id="meals"></div>
@@ -33,6 +48,16 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="meal-info" id="meal-info"></div>
+        </div>
+    </div>
+
+    <div class="select-popup-container hidden" id="select-popup">
+        <div class="popup">
+            <button id="close-select-popup" class="close-popup">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="options" id="options">
+            </ul>
         </div>
     </div>
 </body>
