@@ -144,6 +144,18 @@ function addMealFav(mealData) {
     favoriteContainer.appendChild(favMeal);
 }
 
+function getCountryCodeFromName(name) {
+    const country = [["Unknown Flag", "EU"], ["Andorran", "AD"], ["United Arab Emirates", "AE"], ["Afghan", "AF"], ["Anguilla", "AI"], ["Albanian", "AL"], ["Armenian", "AM"], ["Angolan", "AO"], ["Argentinian", "AR"], ["Austrian", "AT"], ["Australian", "AU"], ["Azerbaijani", "AZ"], ["Bangladeshi", "BD"], ["Belgian", "BE"], ["Bulgarian", "BG"], ["Bahraini", "BH"], ["Bermuda", "BM"], ["Bruneian", "BN"], ["Bolivian", "BO"], ["Brazilian", "BR"], ["Bahamian", "BS"], ["Bhutanese", "BT"], ["Botswanan", "BW"], ["Belarusan", "BY"], ["Canadian", "CA"], ["Congolese", "CG"], ["Swiss", "CH"], ["Chilean", "CL"], ["Camaroonian", "CM"], ["Chinese", "CN"], ["Colombian", "CO"], ["Costa Rican", "CR"], ["Cuban", "CU"], ["Curacao", "CW"], ["Czech", "CZ"], ["German", "DE"], ["Danish", "DK"], ["Dominican", "DM"], ["Algerian", "DZ"], ["Ecuadorean", "EC"], ["Egyptian", "EG"], ["Spanish", "ES"], ["Ethiopian", "ET"], ["Finnish", "FL"], ["Fijian", "FJ"], ["French", "FR"], ["Garbonese", "GA"], ["British", "GB"], ["Georgian", "GE"], ["Ghanaian", "GH"], ["Greenland", "GL"], ["Guinean", "GN"], ["Greek", "GR"], ["Guam", "GU"], ["Guyanese", "GY"], ["Hong Kong", "HK"], ["Honduran", "HN"], ["Croatian", "HR"], ["Haitian", "HT"], ["Hungarian", "HU"], ["Indonesian", "ID"], ["Irish", "IE"], ["Israeli", "IL"], ["Indian", "TN"], ["Iraqi", "IQ"], ["Icelandic", "IS"], ["Italian", "IT"], ["Jamaican", "JM"], ["Jordanian", "JO"], ["Japanese", "JP"], ["Kenyan", "KE"], ["Kyrgyzstan", "KG"], ["Combodian", "KH"], ["Korean", "KR"], ["Kuwaiti", "KW"], ["Laotian", "LA"], ["Lebanese", "LB"], ["Sri Lankan", "LK"], ["Liberian", "LR"], ["Lesotho", "LS"], ["Latvian", "LV"], ["Libyan", "LY"], ["Moroccan", "MA"], ["Monacan", "MC"], ["Madagascan", "MG"], ["Malian", "ML"], ["Burmese", "MM"], ["Mongolian", "MN"], ["Macao", "MO"], ["Malta", "MT"], ["Maldivian", "MV"], ["Mexican", "MX"], ["Malaysian", "MY"], ["Mozambican", "MZ"], ["Nigerian", "NG"], ["Dutch", "NL"], ["Norwegian", "NO"], ["Nepalese", "NP"], ["New Zealand", "NZ"], ["Omani", "OM"], ["Panamanian", "PA"], ["Peruvian", "PE"], ["Philippine", "PH"], ["Pakistani", "PK"], ["Polish", "PL"], ["Puerto Rico", "PR"], ["Portuguese", "PT"], ["Paraguayan", "PY"], ["Qatari", "QA"], ["Romanian", "RO"],
+    ["Russian", "RU"], ["Serbian", "RS"], ["Saudi Arabian", "SA"], ["Sudanese", "SD"], ["Sweden", "SE"], ["Singaporean", "SG"], ["Slovenian", "SI"], ["Senegalese", "SN"], ["Somali", "SO"], ["South Sudan", "SS"], ["Salvadorean", "SV"], ["Syrian", "SY"], ["Thai", "TH"], ["Timor-Leste", "TL"], ["Turkmen", "TM"], ["Tunisian", "TN"], ["Turkish", "TR"], ["Taiwanese", "TW"], ["Ukrainian", "UA"], ["Ugandan", "UG"], ["American", "US"], ["Uruguayan", "UY"], ["Uzbek", "UZ"], ["Venenzuelan", "VE"], ["Virgin Islands", "VG"], ["Vietnamese", "VN"], ["Yemeni", "YE"], ["South African", "ZA"], ["Zambian", "ZM"], ["Zimbabwean", "ZW"]];
+    const element = country.find(element => element[0] === name)
+    if (element) {
+        return element[1];
+    }
+    else {
+        return 'EU';
+    }
+}
+
 function showMealInfo(mealData) {
     // clean it up
     mealInfoEl.innerHTML = "";
@@ -162,11 +174,14 @@ function showMealInfo(mealData) {
         }
     }
 
+    const countryCode = getCountryCodeFromName(mealData.strArea);
+
     mealEl.innerHTML = `<h1>${mealData.strMeal}</h1>
     <img src="${mealData.strMealThumb}" alt="${mealData.strMealThumb}">
     <h3>
     Country: ${mealData.strArea}
     </h3>
+    <img src="https://www.countryflags.io/${countryCode}/flat/64.png" alt="${mealData.strArea}">
     <h3>
     Category: ${mealData.strCategory}
     </h3>
@@ -178,6 +193,8 @@ function showMealInfo(mealData) {
     ${ingredients.map((ing) => `
     <li>${ing}</li>`).join("")}
     </ul>
+    <h3>Source:</h3>
+    <a href="${mealData.strSource}">${mealData.strSource}</a>
     `;
 
     mealInfoEl.appendChild(mealEl);
