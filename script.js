@@ -10,10 +10,12 @@ const mealPopup = document.getElementById('meal-popup');
 const mealInfoEl = document.getElementById('meal-info');
 const popupCloseBtn = document.getElementById('close-popup');
 
-const areaEl = document.getElementById('li-area');
+const areaFilterEl = document.getElementById('li-area');
 const selectPopup = document.getElementById('select-popup');
 const optionsEl = document.getElementById('options');
 const selectPopupCloseBtn = document.getElementById('close-select-popup');
+
+const categoryFilterEl = document.getElementById('li-category');
 
 getRandomMeal();
 fetchFavMeals();
@@ -58,8 +60,28 @@ async function getAreaList() {
     return areaList;
 }
 
+async function getCategoryList() {
+    const res = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list');
+
+    const resData = await res.json();
+
+    const categoryList = resData.meals;
+
+    return categoryList;
+}
+
 async function getMealsIdByArea(area) {
     const res = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=' + area);
+
+    const resData = await res.json();
+
+    const mealsId = resData.meals;
+
+    return mealsId;
+}
+
+async function getMealsIdByCategory(cate) {
+    const res = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + cate);
 
     const resData = await res.json();
 
@@ -245,37 +267,72 @@ searchBtn.addEventListener('click', async () => {
     }
 })
 
-async function showPopupArea() {
-    const countryList = await getAreaList();
+async function showPopupArea(filter) {
 
     // clear the popup
-    optionsEl.innerHTML=``;
+    optionsEl.innerHTML = ``;
 
-    for (let i = 0; i < countryList.length; i++) {
-        const countryEl = document.createElement('li');
-        const countryCode = getCountryCodeFromName(countryList[i].strArea);
-        countryEl.innerHTML = `
+    if (filter === 'area') {
+        const countryList = await getAreaList();
+
+        for (let i = 0; i < countryList.length; i++) {
+            const countryEl = document.createElement('li');
+            const countryCode = getCountryCodeFromName(countryList[i].strArea);
+            countryEl.innerHTML = `
         <img src="https://www.countryflags.io/${countryCode}/flat/64.png" alt="${countryList[i].strArea}">
         <span>${countryList[i].strArea}</span>
         `;
-        optionsEl.appendChild(countryEl);
-        countryEl.addEventListener('click', async () => {
-            areaEl.innerHTML = `<img src="https://www.countryflags.io/${countryCode}/flat/64.png" alt="${countryList[i].strArea}">
+            optionsEl.appendChild(countryEl);
+            countryEl.addEventListener('click', async () => {
+                areaFilterEl.innerHTML = `<img src="https://www.countryflags.io/${countryCode}/flat/64.png" alt="${countryList[i].strArea}">
             <span>${countryList[i].strArea}</span>`
-            selectPopup.classList.add('hidden');
+                selectPopup.classList.add('hidden');
 
-            // clear the container    
-            mealsEls.innerHTML = "";
+                // clear the container    
+                mealsEls.innerHTML = "";
 
-            const mealsId = await getMealsIdByArea(countryList[i].strArea);
+                const mealsId = await getMealsIdByArea(countryList[i].strArea);
 
-            if (mealsId) {
-                mealsId.forEach(async(mealId) => {
-                    const specMeal = await getMealById(mealId.idMeal);
-                    addMeal(specMeal);
-                })
-            }
-        })
+                if (mealsId) {
+                    mealsId.forEach(async (mealId) => {
+                        const specMeal = await getMealById(mealId.idMeal);
+                        addMeal(specMeal);
+                    })
+                }
+            })
+        }
+    }
+    if(filter === 'category'){
+        const categoryList = await getCategoryList();
+
+        for (let i = 0; i < categoryList.length; i++) {
+            const categoryEl = document.createElement('li');
+          
+            categoryEl.innerHTML = `
+        <img src="/images/${categoryList[i].strCategory}.png" alt="$${categoryList[i].strCategory}">
+        <span>${categoryList[i].strCategory}</span>
+        `;
+            optionsEl.appendChild(categoryEl);
+            categoryEl.addEventListener('click', async () => {
+                categoryFilterEl.innerHTML = `
+                <img src="/images/${categoryList[i].strCategory}.png" alt="$${categoryList[i].strCategory}">
+                <span>${categoryList[i].strCategory}</span>
+                `
+                selectPopup.classList.add('hidden');
+
+                // clear the container    
+                mealsEls.innerHTML = "";
+
+                const mealsId = await getMealsIdByCategory(categoryList[i].strCategory);
+
+                if (mealsId) {
+                    mealsId.forEach(async (mealId) => {
+                        const specMeal = await getMealById(mealId.idMeal);
+                        addMeal(specMeal);
+                    })
+                }
+            })
+        }
     }
     selectPopup.classList.remove('hidden');
 }
@@ -288,8 +345,12 @@ refreshBtn.addEventListener('click', () => {
     getRandomMeal();
 });
 
-areaEl.addEventListener('click', () => {
-    showPopupArea();
+areaFilterEl.addEventListener('click', () => {
+    showPopupArea('area');
+})
+
+categoryFilterEl.addEventListener('click', () => {
+    showPopupArea('category');
 })
 
 selectPopupCloseBtn.addEventListener('click', () => {
