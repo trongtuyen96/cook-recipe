@@ -45,7 +45,9 @@ async function getMealsBySearch(term) {
 function addMeal(mealData, random = false) {
 
     // clear random meal
-    mealsEls.innerHTML = ``;
+    if(random===true){
+        mealsEls.innerHTML = ``;
+    }
 
     const meal = document.createElement('div');
     meal.classList.add('meal');
