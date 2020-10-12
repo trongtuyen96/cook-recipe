@@ -309,13 +309,13 @@ async function showPopupArea(filter) {
             const categoryEl = document.createElement('li');
           
             categoryEl.innerHTML = `
-        <img src="https://trongtuyen96.github.io/cook-recipe/images/${categoryList[i].strCategory}.png" alt="${categoryList[i].strCategory}">
+        <img src="./images/${categoryList[i].strCategory}.png" alt="${categoryList[i].strCategory}">
         <span>${categoryList[i].strCategory}</span>
         `;
             optionsEl.appendChild(categoryEl);
             categoryEl.addEventListener('click', async () => {
                 categoryFilterEl.innerHTML = `
-                <img src="https://trongtuyen96.github.io/cook-recipe/images/${categoryList[i].strCategory}.png" alt="${categoryList[i].strCategory}">
+                <img src="./images/${categoryList[i].strCategory}.png" alt="${categoryList[i].strCategory}">
                 <span>${categoryList[i].strCategory}</span>
                 `
                 selectPopup.classList.add('hidden');
