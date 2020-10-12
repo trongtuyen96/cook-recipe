@@ -286,7 +286,13 @@ async function showPopupArea(filter) {
             countryEl.addEventListener('click', async () => {
                 areaFilterEl.innerHTML = `<img src="https://www.countryflags.io/${countryCode}/flat/64.png" alt="${countryList[i].strArea}">
             <span>${countryList[i].strArea}</span>`
+
                 selectPopup.classList.add('hidden');
+
+                // Set category to default
+                categoryFilterEl.innerHTML = `
+                <img src="./images/Seafood.png" alt="Category">
+                <span>Category</span>`;
 
                 // clear the container    
                 mealsEls.innerHTML = "";
@@ -316,11 +322,15 @@ async function showPopupArea(filter) {
             categoryEl.addEventListener('click', async () => {
                 categoryFilterEl.innerHTML = `
                 <img src="./images/${categoryList[i].strCategory}.png" alt="${categoryList[i].strCategory}">
-                <span>${categoryList[i].strCategory}</span>
-                `
+                <span>${categoryList[i].strCategory}</span>`;
+
                 // We can use full path as https://trongtuyen96.github.io/cook-recipe/images/... or must be ./ as GitHub Pages cannot find the source
 
                 selectPopup.classList.add('hidden');
+
+                // Set Area to default
+                areaFilterEl.innerHTML = `<img src="https://www.countryflags.io/EU/flat/64.png" alt="Area">
+                <span>Area</span>`;
 
                 // clear the container    
                 mealsEls.innerHTML = "";
