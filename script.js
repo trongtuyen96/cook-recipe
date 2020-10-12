@@ -315,7 +315,7 @@ async function showPopupArea(filter) {
             optionsEl.appendChild(categoryEl);
             categoryEl.addEventListener('click', async () => {
                 categoryFilterEl.innerHTML = `
-                <img src="/images/${categoryList[i].strCategory}.png" alt="$${categoryList[i].strCategory}">
+                <img src="/images/${categoryList[i].strCategory}.png" alt="${categoryList[i].strCategory}">
                 <span>${categoryList[i].strCategory}</span>
                 `
                 selectPopup.classList.add('hidden');
