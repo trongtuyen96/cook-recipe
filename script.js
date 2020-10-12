@@ -318,6 +318,8 @@ async function showPopupArea(filter) {
                 <img src="./images/${categoryList[i].strCategory}.png" alt="${categoryList[i].strCategory}">
                 <span>${categoryList[i].strCategory}</span>
                 `
+                // We can use full path as https://trongtuyen96.github.io/cook-recipe/images/... or must be ./ as GitHub Pages cannot find the source
+
                 selectPopup.classList.add('hidden');
 
                 // clear the container    
