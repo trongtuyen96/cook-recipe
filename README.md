@@ -42,14 +42,18 @@
 
 ## Screenshots
 <h3 align="center">
+  <span>Main screen</span>
   <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/covers/Capture-1.PNG" alt="capture-1" width="400"></a>
 	
+  <span>Filter popup</span>	
   <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/covers/Capture-2.PNG" alt="capture-2" width="400"></a>
   <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/covers/Capture-3.PNG" alt="capture-3" width="400"></a>
   
+  <span>Filter results</span>
   <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/covers/Capture-4.PNG" alt="capture-4" width="400"></a>
   <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/covers/Capture-5.PNG" alt="capture-5" width="400"></a>
   
+  <span>Recipe info with YouTube video</span>
   <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/covers/Capture-6.PNG" alt="capture-6" width="400"></a>
   <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/covers/Capture-7.PNG" alt="capture-7" width="400"></a>
 </h3>
