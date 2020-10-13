@@ -252,7 +252,7 @@ function showMealInfo(mealData) {
         <h3>Video Recipe:</h3>
         <div class="videoWrapper">
             <iframe width="100%" height="100%"
-            src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}">
+            src="https://www.youtube.com/embed/${mealData.strYoutube.slice(-11)}">
             </iframe>
         </div>` : ''}
     `;
