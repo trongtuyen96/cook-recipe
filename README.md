@@ -1,9 +1,9 @@
 <h1 align="center">
   <br>
-  <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/images/logo-trans.png" alt="logo" width="260px"></a>
-  <br>
+  <a><img src="https://github.com/trongtuyen96/cook-recipe/blob/master/images/logo-trans.png" alt="logo" width="200px"></a>
+<!--   <br>
   Cook Recipe
-  <br>
+  <br> -->
 </h1>
 
 <h3 align="center" style="bold">A cook recipe app using HTML, CSS for UI layout and written by Javascript for behind functionality.</h3>
