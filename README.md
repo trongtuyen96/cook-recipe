@@ -84,7 +84,7 @@
   </a>
 </p>
 
-A special thanks to Florin Pop.
+A special thank to Florin Pop.
 ## License
 ~~~~
 Copyright 2020 Tuyen Nguyen
