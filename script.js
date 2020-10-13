@@ -207,6 +207,8 @@ function getCountryCodeFromName(name) {
 }
 
 function showMealInfo(mealData) {
+
+    console.log(mealData)
     // clean it up
     mealInfoEl.innerHTML = "";
 
@@ -245,7 +247,17 @@ function showMealInfo(mealData) {
     </ul>
     <h3>Source:</h3>
     <a href="${mealData.strSource}">${mealData.strSource}</a>
+
+    ${mealData.strYoutube ? `
+        <h3>Video Recipe:</h3>
+        <div class="videoWrapper">
+            <iframe width="100%" height="100%"
+            src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}">
+            </iframe>
+        </div>` : ''}
     `;
+    // Add that video wrapper cause warning 
+
 
     mealInfoEl.appendChild(mealEl);
 
