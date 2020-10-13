@@ -208,7 +208,6 @@ function getCountryCodeFromName(name) {
 
 function showMealInfo(mealData) {
 
-    console.log(mealData)
     // clean it up
     mealInfoEl.innerHTML = "";
 
@@ -251,7 +250,7 @@ function showMealInfo(mealData) {
     ${mealData.strYoutube ? `
         <h3>Video Recipe:</h3>
         <div class="videoWrapper">
-            <iframe width="100%" height="100%"
+            <iframe id="video-frame" width="100%" height="100%"
             src="https://www.youtube.com/embed/${mealData.strYoutube.slice(-11)}">
             </iframe>
         </div>` : ''}
@@ -320,12 +319,12 @@ async function showPopupArea(filter) {
             })
         }
     }
-    if(filter === 'category'){
+    if (filter === 'category') {
         const categoryList = await getCategoryList();
 
         for (let i = 0; i < categoryList.length; i++) {
             const categoryEl = document.createElement('li');
-          
+
             categoryEl.innerHTML = `
         <img src="./images/${categoryList[i].strCategory}.png" alt="${categoryList[i].strCategory}">
         <span>${categoryList[i].strCategory}</span>
@@ -362,6 +361,11 @@ async function showPopupArea(filter) {
 }
 
 popupCloseBtn.addEventListener('click', () => {
+
+    // Stop the video player
+    const frame = document.getElementById("video-frame");
+    frame.setAttribute('src',"");
+
     mealPopup.classList.add('hidden');
 });
 
