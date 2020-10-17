@@ -364,7 +364,9 @@ popupCloseBtn.addEventListener('click', () => {
 
     // Stop the video player
     const frame = document.getElementById("video-frame");
-    frame.setAttribute('src',"");
+    if (frame) {
+        frame.setAttribute('src', "");
+    }
 
     mealPopup.classList.add('hidden');
 });
