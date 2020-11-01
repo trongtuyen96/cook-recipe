@@ -39,6 +39,9 @@ header {
     align-items: center;
     justify-content: center;
     padding: 1rem;
+
+    /*fix*/
+    max-width: 100%;
 }
 
 header img {
