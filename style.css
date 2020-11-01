@@ -39,7 +39,6 @@ header {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-
     /*fix*/
     max-width: 100%;
 }
@@ -56,6 +55,7 @@ header input {
     border-radius: 3px;
     padding: 0.5rem 1rem;
     font-family: inherit;
+    width: 60%;
 }
 
 header button {
@@ -66,8 +66,8 @@ header button {
     margin-left: 10px;
 }
 
-
 /* Favorite Container*/
+
 .fav-container {
     background-color: #ffcfdf;
     background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
@@ -124,6 +124,7 @@ header button {
 }
 
 /* Filter Container */
+
 .filter-container {
     /* padding: 0.25rem 1rem; */
     text-align: center;
@@ -151,8 +152,8 @@ header button {
     width: 80px;
 }
 
-
 /* Meal */
+
 .meal {
     background-color: #d9e4f5;
     background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
@@ -221,6 +222,7 @@ header button {
 }
 
 /* Popup Container */
+
 .popup-container {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -287,6 +289,7 @@ header button {
 }
 
 /* Select Popup Container*/
+
 .select-popup-container {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
