@@ -245,7 +245,7 @@ function showMealInfo(mealData) {
         ${ingredients.map((ing) => `<li>${ing}</li>`).join("")}
     </ul>
     <h3>Source:</h3>
-    <a href="${mealData.strSource}">${mealData.strSource}</a>
+    <a href="${mealData.strSource}">${mealData.strMeal}</a>
 
     ${mealData.strYoutube ? `
         <h3>Video Recipe:</h3>
